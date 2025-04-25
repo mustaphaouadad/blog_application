@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomePageComponent } from './component/welcome-page/welcome-page.component';
 import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
-const redirecToLogin = () => redirectUnauthorizedTo('/auth/sifn-in');
+const redirecToLogin = () => redirectUnauthorizedTo('/auth/sign-in');
 const routes: Routes = [
   {
     path : '',
