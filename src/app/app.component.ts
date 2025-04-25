@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from ".//navbar/navbar.component";
+import { Router } from 'express';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet ,NavbarComponent , RouterLink],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'blog_application';
+  title = 'Bolg_App';
 }

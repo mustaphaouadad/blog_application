@@ -1,0 +1,60 @@
+<div class="text-center p-4 bg-light">
+    <h1 class="display-4">Blog Minimal</h1>
+    <p class="lead">Des articles simples sur les technologies modernes</p>
+  
+    <a routerLink="/new" class="btn btn-primary mb-3">Ajouter Poste</a>
+  
+    <input
+      type="text"
+      class="form-control w-50 mx-auto"
+      [(ngModel)]="searchTitle"
+      placeholder="Rechercher par titre..."
+    />
+  </div>
+  
+  <div class="container my-4">
+    <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+      <button class="btn btn-outline-secondary" (click)="selectCategory='sport'">
+        <i class="fas fa-futbol"></i> Sport
+      </button>
+      <button class="btn btn-outline-secondary" (click)="selectCategory='social'">
+        <i class="fas fa-users"></i> Social
+      </button>
+      <button class="btn btn-outline-secondary" (click)="selectCategory='politique'">
+        <i class="fas fa-landmark"></i> Politique
+      </button>
+      <button class="btn btn-outline-secondary" (click)="selectCategory=''">
+        <i class="fas fa-globe"></i> Tous
+      </button>
+    </div>
+  
+    <div class="row">
+      <ng-container *ngFor="let post of posts">
+        <ng-container *ngIf="(!selectCategory || post.categorie === selectCategory) && (!searchTitle || post.title.toLowerCase().includes(searchTitle.toLowerCase()))">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div
+                class="card-img-top bg-primary text-white d-flex align-items-center justify-content-center"
+                [style.backgroundImage]="post.image ? 'url(' + post.image + ')' : ''"
+                [style.backgroundSize]="'cover'"
+                [style.backgroundPosition]="'center'"
+                style="height: 200px;"
+              >
+                <h5 class="text-shadow">{{ post.title }}</h5>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.description }}</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between text-muted small">
+                <span><i class="fas fa-user"></i> Hamed lkaget</span>
+                <span><i class="fas fa-calendar"></i> {{ post.date }}</span>
+              </div>
+              <a [routerLink]="['/details', post.id]" class="btn btn-link text-primary">Lire l'article</a>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  

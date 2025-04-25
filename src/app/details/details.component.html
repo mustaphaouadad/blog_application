@@ -1,0 +1,32 @@
+<div *ngIf="post" class="container my-5">
+    <div class="card shadow-lg">
+      <div class="card-header text-center bg-primary text-white">
+        <h1 class="card-title mb-0">{{ post.title }}</h1>
+        <p class="card-subtitle">{{ post.description }}</p>
+      </div>
+  
+      <img
+        *ngIf="post.image"
+        [src]="post.image"
+        [alt]="post.title"
+        class="card-img-top img-fluid"
+      />
+  
+      <div class="card-body">
+        <div class="d-flex justify-content-between text-muted mb-3">
+          <span><i class="fas fa-user"></i> Auteur: Hamed lkaget</span>
+          <span><i class="fas fa-calendar-alt"></i> Publié le: {{ post.date }}</span>
+        </div>
+  
+        <p class="card-text">{{ post.content }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!post" class="d-flex justify-content-center align-items-center my-5">
+    <div class="spinner-border text-primary me-2" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+    <span>Chargement du post...</span>
+  </div>
+  
