@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center">
+
+    <div class="text-center mt-5 pt-5">
+        <img src="assets/img/1.png" width="250" class="mb-3">
+        <h1>welcom to your App</h1>
+        <p>Pleas sign in or sign_up to start using to app</p>
+           
+
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="d-block">
+            <mat-label>Email/Username</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="d-block">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
+          <!--error message -->
+        <div class="alert alert-danger d-flex align-items-center" *ngIf="errrMessage">
+          <mat-icon>info</mat-icon>
+          {{errrMessage}}
+        </div>
+
+
+
+
+        <!-- Progress spiner-->
+          <div class="d-flex align-items-center" *ngIf="isSubmissionProgresse">
+        <mat-spinner  [diameter]="22">
+        </mat-spinner>
+         Signing-in...
+      </div>
+             
+          <button type="submit" mat-raised-button class="d-block mb-1 auth-button">Sign-in</button>
+        </form>
+        
+          <button mat-raised-button class="d-block mb-2 auth-button" (click)=" onSignInWithGoogle()">Sign-in with google</button>
+          
+        </div>
+
+</div>
